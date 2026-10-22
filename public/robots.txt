@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /api/
+
+Sitemap: https://tonpei-18000.tompedia.jp/sitemap.xml

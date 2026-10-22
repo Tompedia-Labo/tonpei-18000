@@ -40,7 +40,7 @@ Node.js 24.22.1 以上が必要です（[.node-version](.node-version)。2026年
 **GitHub の `main` に push すると、Cloudflare が自動でビルドして公開します。** 手元から `npx wrangler pages deploy` は使いません（ログインしているアカウントの別のプロジェクトに公開されてしまうため）。
 
 - D1 はサークルのアカウントの `tonpei-18000`。`database_id` は [wrangler.toml](wrangler.toml) にある。テーブルを変えたときは、ダッシュボードの D1 の Console で [schema.sql](schema.sql) を実行する
-- 公開URLを変えるときは、`src/config.ts` の `SITE_URL` と `index.html` の `og:image`・`og:url` を合わせる
+- 公開URLを変えるときは、`src/config.ts` の `SITE_URL`、`index.html` の `canonical`・`og:image`・`og:url`・構造化データ（`application/ld+json`）、`public/robots.txt`・`public/sitemap.xml` を合わせる
 
 ### プレイ数のAPI
 
@@ -59,7 +59,7 @@ Node.js 24.22.1 以上が必要です（[.node-version](.node-version)。2026年
 
 - `src/data/stats.ts` の数値を出典と照合し、`checked` に日付を入れる。`provisional`（仮置き）の値を確定する
 - `npm run facts` で [docs/fact-check.md](docs/fact-check.md) を作り、`// 要確認` を在学生2〜3人に確かめてもらいながら直す
-- 終わったら、β版の表示を外す（`src/config.ts`、`index.html` の description、`npm run ogp` でOGP画像を作り直す）
+- 終わったら、β版の表示を外す（`src/config.ts`、`index.html` の description と構造化データの description、`npm run ogp` でOGP画像を作り直す）
 
 ## 出典
 

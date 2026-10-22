@@ -3,15 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>とんぺー1.8万分の１</title>
+    <title>とんぺー1.8万分の１｜東北大生活を3〜6分で生きるブラウザゲーム</title>
     <meta name="description" content="東北大の入学から在学の終わりまでを3〜6分で生きるブラウザゲーム（β版）。東北大学とは関係のない、学生団体による非公式プロジェクトです。" />
+    <!-- src/config.ts の SITE_URL と合わせる（Xは絶対URLでないとOGP画像を読まない）。public/robots.txt・public/sitemap.xml も同じURL -->
+    <link rel="canonical" href="https://tonpei-18000.tompedia.jp/" />
+    <meta property="og:site_name" content="とんぺー1.8万分の１" />
     <meta property="og:title" content="とんぺー1.8万分の１" />
     <meta property="og:description" content="あなたの東北大生活は、約何人に1人？ 東北大学とは関係のない、学生団体による非公式プロジェクトです。" />
-    <!-- src/config.ts の SITE_URL と合わせる（Xは絶対URLでないとOGP画像を読まない） -->
     <meta property="og:image" content="https://tonpei-18000.tompedia.jp/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="とんぺー1.8万分の１。あなたの東北大生活は、約何人に1人？ 東北大学とは関係のない、学生団体による非公式プロジェクトです" />
     <meta property="og:url" content="https://tonpei-18000.tompedia.jp/" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
+    <!-- 検索結果のサイト名と、ゲームであることを伝える構造化データ。実行されないデータなので CSP の script-src には当たらない -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://tonpei-18000.tompedia.jp/#website",
+            "name": "とんぺー1.8万分の１",
+            "alternateName": "とんぺー",
+            "url": "https://tonpei-18000.tompedia.jp/",
+            "inLanguage": "ja",
+            "publisher": { "@id": "https://labo.tompedia.jp/#org" }
+          },
+          {
+            "@type": "VideoGame",
+            "name": "とんぺー1.8万分の１",
+            "url": "https://tonpei-18000.tompedia.jp/",
+            "description": "東北大の入学から在学の終わりまでを3〜6分で生きるブラウザゲーム（β版）。東北大学とは関係のない、学生団体による非公式プロジェクトです。",
+            "image": "https://tonpei-18000.tompedia.jp/ogp.png",
+            "inLanguage": "ja",
+            "genre": "シミュレーション",
+            "gamePlatform": "Webブラウザ",
+            "applicationCategory": "Game",
+            "operatingSystem": "Any",
+            "isAccessibleForFree": true,
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+            "author": { "@id": "https://labo.tompedia.jp/#org" },
+            "isPartOf": { "@id": "https://tonpei-18000.tompedia.jp/#website" }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://labo.tompedia.jp/#org",
+            "name": "とんペディア_ラボ",
+            "url": "https://labo.tompedia.jp/"
+          }
+        ]
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet" />
@@ -23,6 +68,11 @@
   </head>
   <body>
     <div id="app"></div>
+    <noscript>
+      <h1>とんぺー1.8万分の１</h1>
+      <p>東北大の入学から在学の終わりまでを3〜6分で生きるブラウザゲームです。遊ぶには JavaScript を有効にしてください。</p>
+      <p>東北大学とは関係のない、学生団体による非公式プロジェクト</p>
+    </noscript>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
