@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ドット絵の確認（開発用）</title>
+    <style>
+      body { background: #150c2b; color: #f4eeff; font-family: sans-serif; margin: 16px; }
+      .row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; align-items: flex-end; }
+      figure { margin: 0; text-align: center; font-size: 12px; }
+      canvas { image-rendering: pixelated; display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="out"></div>
+    <script type="module" src="/src/dev/preview.ts"></script>
+  </body>
+</html>

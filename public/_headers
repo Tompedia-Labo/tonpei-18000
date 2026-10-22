@@ -1,0 +1,9 @@
+# Cloudflare Pages の応答ヘッダー（静的ファイル用。API の応答は functions/api/_shared.ts で付ける）
+# CSP：スクリプトは自分のサイトからだけ。フォントは Google Fonts。style 属性（演出の遅延など）を使うので style は 'unsafe-inline'
+# 画像の data: は枠の 9-slice、blob: はシェア画像の保存に使う
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()

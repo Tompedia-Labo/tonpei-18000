@@ -1,0 +1,9 @@
+# Cloudflare Pages の設定。D1 はプレイ数のカウンターだけに使う
+name = "tonpei-18000"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tonpei-18000"
+database_id = "4243d2f4-7715-40c1-98c7-9d6d9e85faca"
