@@ -5,7 +5,7 @@
 /** 団体名・公式サイト・ロゴ画像（public/labo-logo.png） */
 export const LABO = { name: 'とんペディア_ラボ', url: 'https://labo.tompedia.jp/', logo: '/labo-logo.png' };
 /** 東北大学祭 特設ウェブアプリ */
-export const FESTA_URL = 'https://festa.tohoku.app/2026/'; // 要確認
+export const FESTA_URL = 'https://festa.tohoku.app/2026/';
 
 // ─ リザルト画面：「研究の階段」の下、「もう一度入学する」ボタンの上。紙色のドット枠
 //
@@ -20,7 +20,6 @@ export const FESTA_URL = 'https://festa.tohoku.app/2026/'; // 要確認
 //                                                 スマホの幅では上下に並ぶ
 export const CREDIT_RESULT = {
   heading: 'このゲームを作ったのは',
-  // 要確認：東北大学祭に向けて作ったこと、学祭の特設ウェブアプリも同じ団体が作ったこと
   body: 'とんペディア_ラボが、東北大学祭に向けて作りました。\n学祭の特設ウェブアプリも作っています。',
   festaButton: '学祭アプリを見る',
   laboButton: 'ラボのサイト',
@@ -34,7 +33,6 @@ export const CREDIT_RESULT = {
 //                                                    スマホの幅では festaLink が次の行に回る
 export const CREDIT_TITLE = {
   label: '制作',
-  // 要確認：東北大学祭に向けて作ったこと
   body: '東北大学祭に向けて作りました。',
   festaLink: '学祭アプリも見る',
 };
