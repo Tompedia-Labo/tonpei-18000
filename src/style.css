@@ -1568,16 +1568,39 @@ canvas.ladder {
   gap: 12px;
   margin: 12px 0 10px;
 }
-.credit .icon,
-.credit-mini .icon {
+.credit .icon {
   flex: none;
   width: 16px;
   height: 16px;
   transition: transform 80ms steps(2);
 }
-.credit a:hover .icon,
-.credit-mini a:hover .icon {
+.credit a:hover .icon {
   transform: translate(2px, -2px);
+}
+/* 学祭アプリのバナー。ボタンと同じく、乗ると浮いて押すと沈む */
+.credit-banner {
+  display: block;
+  margin: 12px 0 6px;
+  filter: drop-shadow(0 5px 0 var(--outline));
+  transition: transform 60ms steps(2);
+  -webkit-tap-highlight-color: transparent;
+}
+.credit-banner:hover {
+  transform: translateY(-2px);
+}
+.credit-banner:active {
+  transform: translateY(4px);
+  filter: drop-shadow(0 1px 0 var(--outline));
+}
+.credit-banner:focus-visible {
+  outline: 3px dashed var(--violet-deep);
+  outline-offset: 4px;
+}
+.credit-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 3px solid var(--outline);
 }
 .credit-mini {
   text-align: center;
@@ -1593,19 +1616,11 @@ canvas.ladder {
   max-width: 280px;
 }
 .credit-mini-text {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2px 10px;
   font-size: 0.875rem;
   color: var(--ink-soft);
 }
-.credit-mini-text a {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-weight: 700;
+.credit-mini .credit-banner {
+  margin: 8px 0 10px;
 }
 
 /* ── フッター */
@@ -1620,8 +1635,7 @@ canvas.ladder {
   gap: 4px;
 }
 /* 「とんペディア_ラボ」の _ が下線に埋もれないよう、下線を少し離す */
-.footer a,
-.credit-mini-text a {
+.footer a {
   text-underline-offset: 0.3em;
 }
 

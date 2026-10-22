@@ -1,11 +1,16 @@
 // とんペディア_ラボと東北大学祭の案内に出す文言。ここの文字列を書き換えれば、そのまま画面に出る。
 // ・「\n」を入れたところで改行する（入れなくても、画面の幅に合わせて自動で折り返す）
-// ・押すと飛ぶ先はすべて新しいタブで開き、リンクの文字の後ろにドット絵の矢印（↗）が付く
+// ・押すと飛ぶ先はすべて新しいタブで開く。文字のリンクには後ろにドット絵の矢印（↗）が付く
 
 /** 団体名・公式サイト・ロゴ画像（public/labo-logo.png） */
 export const LABO = { name: 'とんペディア_ラボ', url: 'https://labo.tompedia.jp/', logo: '/labo-logo.png' };
 /** 東北大学祭 特設ウェブアプリ */
 export const FESTA_URL = 'https://festa.tohoku.app/2026/';
+/** 学祭アプリのバナー画像（public/festa-banner.webp）。alt は画像が見えない人向けに読み上げる説明 */
+export const FESTA_BANNER = {
+  src: '/festa-banner.webp',
+  alt: '東北大学祭2026 公式特設ウェブアプリ。企画検索・3Dマップ・混雑状況。タップして企画をチェック',
+};
 
 // ─ リザルト画面：「研究の階段」の下、「もう一度入学する」ボタンの上。紙色のドット枠
 //
@@ -16,12 +21,12 @@ export const FESTA_URL = 'https://festa.tohoku.app/2026/';
 //     とんペディア_ラボが、東北大学祭に向けて作りました。   ← body（中央寄せ）
 //     学祭の特設ウェブアプリも作っています。
 //
-//   [ 学祭アプリを見る ↗ ]  [ ラボのサイト ↗ ]    ← festaButton（黄色）・laboButton（白）
-//                                                 スマホの幅では上下に並ぶ
+//   [ 東北大学祭2026 ウェブアプリのバナー ]   ← 押すと FESTA_URL
+//
+//   [ ラボのサイト ↗ ]                       ← laboButton（白いボタン）
 export const CREDIT_RESULT = {
   heading: 'このゲームを作ったのは',
   body: 'とんペディア_ラボが、東北大学祭に向けて作りました。\n学祭の特設ウェブアプリも作っています。',
-  festaButton: '学祭アプリを見る',
   laboButton: 'ラボのサイト',
 };
 
@@ -29,12 +34,11 @@ export const CREDIT_RESULT = {
 //
 //                 制作                       ← label（小さいドット文字）
 //        [ とんペディア_ラボのロゴ ]         ← 押すと LABO.url
-//   東北大学祭に向けて作りました。 学祭アプリも見る ↗   ← body ＋ festaLink（太字の下線リンク → FESTA_URL）
-//                                                    スマホの幅では festaLink が次の行に回る
+//       東北大学祭に向けて作りました。       ← body
+//   [ 東北大学祭2026 ウェブアプリのバナー ]   ← 押すと FESTA_URL
 export const CREDIT_TITLE = {
   label: '制作',
   body: '東北大学祭に向けて作りました。',
-  festaLink: '学祭アプリも見る',
 };
 
 // ─ 全画面のフッター：「東北大学とは関係のない〜」の定型文のすぐ下の行
