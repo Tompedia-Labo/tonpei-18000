@@ -658,7 +658,9 @@ const BASE_EVENTS: GameEvent[] = [
     id: 'koibito',
     kind: 'random',
     when: { sem: [2, 3, 4, 5, 6, 7] },
-    cond: (s) => !!s.flags.circle && s.stats.tsunagari >= 60,
+    cond: (s) => !!s.flags.circle && s.stats.tsunagari >= 40,
+    // 1回のプレイで恋人ができるのが3割くらいになるよう寄せる
+    weight: 2,
     once: true,
     prob: 'game.ev.koibito',
     rare: { label: 'サークルで恋人ができた' },
