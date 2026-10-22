@@ -5,7 +5,7 @@ import { spriteCanvas, type Sprite } from './sprite';
 
 const PAL = {
   k: UI.outline, w: PX.white, c: UI.cyan, C: '#1f8fc0', R: UI.pink, r: '#ffb3cd', Y: UI.yellow, y: '#d99a12',
-  P: UI.pink, G: UI.cyan, s: '#f6d3b3', L: UI.lime, l: '#4fa82c', V: UI.violet, v: UI.violetHi, g: PX.grayLight,
+  P: UI.pink, G: UI.cyan, s: '#f6d3b3', L: UI.lime, l: '#4fa82c', V: UI.violet, v: UI.violetHi, g: PX.grayLight, p: '#c22f63',
 };
 
 export const ICONS: Record<string, Sprite> = {
@@ -17,6 +17,7 @@ export const ICONS: Record<string, Sprite> = {
   lock: ['..kkkk..', '.k....k.', '.k....k.', 'kkkkkkkk', 'kggggggk', 'kgggkggk', 'kggggggk', 'kkkkkkkk'],
   star: ['...k....', '..kYk...', 'kkYYYkk.', 'kYYwYYk.', '.kYYYk..', 'kYk.kYk.', 'kk...kk.', '........'],
   chart: ['k.......', 'k.....V.', 'k...V.V.', 'k.V.V.V.', 'k.V.V.V.', 'k.V.V.V.', 'kkkkkkkk', '........'],
+  heart: ['.kk.kk..', 'kRrkRRk.', 'kRRRRRk.', 'kRRRRpk.', '.kRRpk..', '..kpk...', '...k....', '........'],
   out: ['...kkkkk', '....kkkk', '.....kkk', '....kkkk', '...kk..k', '..kk....', '.kk.....', 'kk......'],
 };
 

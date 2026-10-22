@@ -1622,6 +1622,33 @@ canvas.ladder {
 .credit-mini .credit-banner {
   margin: 8px 0 10px;
 }
+/* Giving Campaign の案内。学祭バナーの下を点線で区切り、ボタンにはピンクのハートを付ける */
+.credit-giving {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 3px dashed var(--paper-shade);
+  text-align: center;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+.credit-mini .credit-giving {
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top-color: var(--sky-deep);
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+.credit-mini .giving-btn {
+  margin: 8px 0 12px;
+}
+.giving-btn .icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+.giving-btn:hover .icon:first-child {
+  animation: heart-hop 360ms steps(3);
+}
 
 /* ── フッター */
 .footer {
@@ -1658,6 +1685,15 @@ canvas.ladder {
   }
   90% {
     transform: translateY(-5px);
+  }
+}
+@keyframes heart-hop {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: translateY(-3px) scale(1.15);
   }
 }
 @keyframes rise {

@@ -12,6 +12,16 @@ export const FESTA_BANNER = {
   alt: '東北大学祭2026 公式特設ウェブアプリ。企画検索・3Dマップ・混雑状況。タップして企画をチェック',
 };
 
+/**
+ * とんペディア_ラボが参加している Giving Campaign の案内。大学への寄付と取り違えられないよう、主語は団体名にする。
+ * クレジット枠の中にだけ出す（ゲームの途中・シェア文・OGPには出さない）。キャンペーンが終わったら GIVING ごと消す（終わる日：要確認）
+ */
+export const GIVING = {
+  url: 'https://tohoku.2026.giving-campaign.jp/groups?id=dc7af851-20c9-4215-8694-e453695e5d2f',
+  body: 'とんペディア_ラボは今、Giving Campaignに参加しています。\n活動を応援してもらえたらうれしいです！',
+  button: '応援する',
+};
+
 // ─ リザルト画面：「研究の階段」の下、「もう一度入学する」ボタンの上。紙色のドット枠
 //
 //   ★ このゲームを作ったのは                ← heading
@@ -22,8 +32,10 @@ export const FESTA_BANNER = {
 //     学祭の特設ウェブアプリも作っています。
 //
 //   [ 東北大学祭2026 ウェブアプリのバナー ]   ← 押すと FESTA_URL
+//   - - - - - - - - - - - - - - - - - - - -
+//     とんペディア_ラボは今、Giving Campaignに〜   ← GIVING.body
 //
-//   [ ラボのサイト ↗ ]                       ← laboButton（白いボタン）
+//   [ ♥ 応援する ↗ ]  [ ラボのサイト ↗ ]       ← GIVING.button → GIVING.url ／ laboButton（白いボタン）
 export const CREDIT_RESULT = {
   heading: 'このゲームを作ったのは',
   body: 'とんペディア_ラボが、東北大学祭に向けて作りました。\n学祭の特設ウェブアプリも作っています。',
@@ -36,6 +48,8 @@ export const CREDIT_RESULT = {
 //        [ とんペディア_ラボのロゴ ]         ← 押すと LABO.url
 //       東北大学祭に向けて作りました。       ← body
 //   [ 東北大学祭2026 ウェブアプリのバナー ]   ← 押すと FESTA_URL
+//     とんペディア_ラボは今、Giving Campaignに〜   ← GIVING.body（小さめ）
+//            [ ♥ 応援する ↗ ]                ← GIVING.button → GIVING.url
 export const CREDIT_TITLE = {
   label: '制作',
   body: '東北大学祭に向けて作りました。',
