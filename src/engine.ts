@@ -1,7 +1,7 @@
 // ゲームエンジン。DOMに触らない純関数だけを置く（scripts/simulate.ts から同じものを回す）。
 // 使い方：createGame → advance を繰り返す。beat が choice なら choose（または autoChoice）を挟む。
 
-import { SITE_URL } from './config';
+import { SHARE_URL } from './config';
 import { BALANCE } from './data/balance';
 import { EVENTS } from './data/events';
 import { HOUSING, optionName } from './data/gacha';
@@ -351,7 +351,7 @@ export function result(s: State): GameResult {
     tenYears: tenYearsLater(s),
     attributes,
     research,
-    share: shareText({ n: rarity.n, attributes, path: p.label, research, title, url: SITE_URL }),
+    share: shareText({ n: rarity.n, attributes, path: p.label, research, title, url: SHARE_URL }),
   };
 }
 
