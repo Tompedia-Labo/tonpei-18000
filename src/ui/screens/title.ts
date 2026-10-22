@@ -5,6 +5,7 @@ import type { Campus } from '../../core/types';
 import { stat } from '../../data/stats';
 import { CAMPUS_NAME } from '../../data/structure';
 import { fetchStats, type PlayStats } from '../api';
+import { credit } from '../components/credit';
 import { h } from '../dom';
 import { countUp } from '../fx';
 import { CAMPUS_POS, MAP_H, MAP_W, mapView } from '../pixel/map';
@@ -57,6 +58,7 @@ export function titleScreen(onStart: () => void, onDex: () => void): { el: HTMLE
     counters,
     note,
     h('div', { class: 'title-actions' }, start, dexBtn, h('p', { class: 'title-meta' }, plays ? h('span', {}, `この端末で${plays}回入学`) : null, h('span', {}, INSPIRED_BY))),
+    credit('mini'),
   );
 
   // カウンター：開いた時点からの増え分を出す

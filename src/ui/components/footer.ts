@@ -1,4 +1,5 @@
 import { BETA, DATA_NOTICE, DISCLAIMER, DISCLAIMER_SHORT, feedbackUrl, type FeedbackScreen } from '../../config';
+import { CREDIT_FOOTER, LABO } from '../../data/credit';
 import { h } from '../dom';
 
 /** 全画面のフッター。タイトル・結果では定型文の全文とβ版の注記と報告フォーム、結果では相談窓口も出す */
@@ -7,6 +8,7 @@ export function footer(opts: { full?: boolean; help?: boolean; screen?: Feedback
     'footer',
     { class: 'footer' },
     h('p', {}, opts.full ? DISCLAIMER : `${DISCLAIMER_SHORT}です。`),
+    h('p', {}, CREDIT_FOOTER.label, h('a', { href: LABO.url, target: '_blank', rel: 'noopener' }, LABO.name)),
     opts.full
       ? h(
           'p',

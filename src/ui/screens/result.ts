@@ -6,6 +6,7 @@ import { SOURCES, stat } from '../../data/stats';
 import { ladderCanvas } from '../pixel/ladder';
 import { result, type State } from '../../engine';
 import { h } from '../dom';
+import { credit } from '../components/credit';
 import { TITLES } from '../../data/endings';
 import { confetti, countUp, flash, typewriter } from '../fx';
 import { addTitle, saved } from '../storage';
@@ -135,6 +136,7 @@ export function resultScreen(s: State, onRetry: () => void, onDex: () => void): 
     tenYears,
     rare,
     research,
+    credit('full'),
     h(
       'div',
       { class: 'choices' },

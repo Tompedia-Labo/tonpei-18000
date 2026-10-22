@@ -17,6 +17,7 @@ export const ICONS: Record<string, Sprite> = {
   lock: ['..kkkk..', '.k....k.', '.k....k.', 'kkkkkkkk', 'kggggggk', 'kgggkggk', 'kggggggk', 'kkkkkkkk'],
   star: ['...k....', '..kYk...', 'kkYYYkk.', 'kYYwYYk.', '.kYYYk..', 'kYk.kYk.', 'kk...kk.', '........'],
   chart: ['k.......', 'k.....V.', 'k...V.V.', 'k.V.V.V.', 'k.V.V.V.', 'k.V.V.V.', 'kkkkkkkk', '........'],
+  out: ['...kkkkk', '....kkkk', '.....kkk', '....kkkk', '...kk..k', '..kk....', '.kk.....', 'kk......'],
 };
 
 export function icon(name: keyof typeof ICONS | string, scale = 2): HTMLCanvasElement {

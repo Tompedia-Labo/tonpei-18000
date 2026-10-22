@@ -6,7 +6,7 @@
   "engines": {
     "node": ">=24.22.1"
   },
-  "description": "とんぺー1.8万分の１ — 東北大学とは関係のない、学生個人による非公式プロジェクト",
+  "description": "とんぺー1.8万分の１ — 東北大学とは関係のない、学生団体による非公式プロジェクト",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && tsc --noEmit -p functions && vite build",

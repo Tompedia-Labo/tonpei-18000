@@ -2,8 +2,8 @@
 export const SITE_URL = 'https://tonpei-18000.tompedia.jp';
 
 export const DISCLAIMER =
-  '本作は東北大学とは関係のない、学生個人による非公式プロジェクトです。東北大学の公認・協力・データ提供を受けたものではありません。';
-export const DISCLAIMER_SHORT = '東北大学とは関係のない、学生個人による非公式プロジェクト';
+  '本作は東北大学とは関係のない、学生団体による非公式プロジェクトです。東北大学の公認・協力・データ提供を受けたものではありません。';
+export const DISCLAIMER_SHORT = '東北大学とは関係のない、学生団体による非公式プロジェクト';
 export const INSPIRED_BY = '『80億分の1』にインスパイアされた作品です。';
 // 気づいたこと・間違いの報告フォーム（Googleフォーム）。送るのは画面・イベントID・時期だけで、学部や家計は送らない
 const FEEDBACK_FORM = 'https://docs.google.com/forms/d/e/1FAIpQLSd4y2BWG7shAMBJF3PgdhuEqlXTV-nuM_d5zaaaXsvrkqpS3Q/viewform';

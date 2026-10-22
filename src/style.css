@@ -1537,6 +1537,77 @@ canvas.ladder {
   color: var(--ink-soft);
 }
 
+/* ── 制作（とんペディア_ラボ）と学祭の案内 */
+.credit-logo {
+  display: block;
+  padding: 6px 4px;
+  transition: transform 80ms steps(2);
+}
+.credit-logo:hover {
+  transform: translateY(-2px);
+}
+.credit-logo:focus-visible {
+  outline: 3px dashed var(--violet-deep);
+  outline-offset: 2px;
+}
+.credit-logo img {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 0 auto;
+}
+.credit-text {
+  text-align: center;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+.credit-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5em, 1fr));
+  gap: 12px;
+  margin: 12px 0 10px;
+}
+.credit .icon,
+.credit-mini .icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  transition: transform 80ms steps(2);
+}
+.credit a:hover .icon,
+.credit-mini a:hover .icon {
+  transform: translate(2px, -2px);
+}
+.credit-mini {
+  text-align: center;
+  padding: 4px 6px;
+}
+.credit-label {
+  display: block;
+  font-family: var(--font-pixel);
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+.credit-mini .credit-logo img {
+  max-width: 280px;
+}
+.credit-mini-text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2px 10px;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+.credit-mini-text a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+}
+
 /* ── フッター */
 .footer {
   margin-top: 28px;
@@ -1547,6 +1618,11 @@ canvas.ladder {
   color: var(--ink-soft);
   display: grid;
   gap: 4px;
+}
+/* 「とんペディア_ラボ」の _ が下線に埋もれないよう、下線を少し離す */
+.footer a,
+.credit-mini-text a {
+  text-underline-offset: 0.3em;
 }
 
 /* ── 動き（ドットらしく steps で動かす） */
