@@ -7,7 +7,8 @@ import { chromium, type Page } from 'playwright-core';
 
 const BASE = process.env.BASE ?? 'http://localhost:4173';
 const SEED = process.env.SEED ?? '7';
-const WIDTHS = [360, 390, 768];
+/** 例：WIDTHS=1280 で撮る幅を絞る。1280 はパソコンの2カラム表示を見る */
+const WIDTHS = process.env.WIDTHS?.split(',').map(Number) ?? [360, 390, 768, 1280];
 const SCHEMES = ['light', 'dark'] as const;
 const SCALES = [1, 2];
 /** 例：ONLY=w390-light-x1,w360-light-x2 で撮る組み合わせを絞る */
