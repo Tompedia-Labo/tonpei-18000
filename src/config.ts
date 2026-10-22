@@ -1,5 +1,5 @@
-// 公開URL（Cloudflare Pages のプロジェクト tonpei-18000）。index.html の og:image・og:url と合わせる
-export const SITE_URL = 'https://tonpei-18000.pages.dev';
+// 公開URL（サークルの Cloudflare Pages。GitHub の main に push すると公開される）。index.html の og:image・og:url と合わせる
+export const SITE_URL = 'https://tonpei-18000.tompedia.jp';
 
 export const DISCLAIMER =
   '本作は東北大学とは関係のない、学生個人による非公式プロジェクトです。東北大学の公認・協力・データ提供を受けたものではありません。';

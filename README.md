@@ -35,16 +35,11 @@ Node.js 24.22.1 以上が必要です（[.node-version](.node-version)。2026年
 
 ## 公開（Cloudflare Pages）
 
-公開URLは https://tonpei-18000.pages.dev です。プロジェクト `tonpei-18000` と D1 `tonpei-18000` は作成済みで、D1 の `database_id` は [wrangler.toml](wrangler.toml) に書いてあります。
+公開URLは https://tonpei-18000.tompedia.jp です（サークルの Cloudflare Pages のプロジェクト `tonpei-18000`。自動で付く住所は `tonpei-18000-elx.pages.dev`）。
 
-更新するときは、次のコマンドでビルドしてアップロードします。Functions（`functions/`）と、wrangler.toml の D1 の設定（`DB`）も一緒に送られます。
+**GitHub の `main` に push すると、Cloudflare が自動でビルドして公開します。** 手元から `npx wrangler pages deploy` は使いません（ログインしているアカウントの別のプロジェクトに公開されてしまうため）。
 
-```sh
-npm run build
-npx wrangler pages deploy --branch main
-```
-
-- D1 のテーブルを変えたときは `npx wrangler d1 execute tonpei-18000 --remote --file schema.sql`
+- D1 はサークルのアカウントの `tonpei-18000`。`database_id` は [wrangler.toml](wrangler.toml) にある。テーブルを変えたときは、ダッシュボードの D1 の Console で [schema.sql](schema.sql) を実行する
 - 公開URLを変えるときは、`src/config.ts` の `SITE_URL` と `index.html` の `og:image`・`og:url` を合わせる
 
 ### プレイ数のAPI
@@ -53,7 +48,7 @@ npx wrangler pages deploy --branch main
 - `GET /api/stats` … `{ entered, finished, campus }`。「いま学んでいる人」は、在学を終えておらず直近10分に動きがあったプレイ。エッジで15秒キャッシュする
 - APIが落ちても、上限に達しても、ゲームは普通に動く（LPのカウンターの欄だけ隠れる）
 - 他のサイトから訪問者のブラウザ経由で数を増やされないよう、同じオリジンからの `application/json` で512バイト以下の送信だけを受け付ける。プレイの行は2日たつと消す（数えた結果は `counters` に残る）
-- 静的ファイルのセキュリティヘッダー（CSPなど）は [public/_headers](public/_headers)。外部から読み込むのは Google Fonts だけ
+- 静的ファイルのセキュリティヘッダー（CSPなど）は [public/_headers](public/_headers)。外部から読み込むのは Google Fonts と、サークルの Cloudflare が差し込むアクセス解析（Web Analytics）だけ。同じく差し込まれるボット検出のインラインスクリプトは CSP で止めている（ブラウザのコンソールにエラーが出るが、ゲームには影響しない。消したければ Cloudflare の設定で JavaScript detections を切る）
 - D1の無料枠は1日10万行の書き込み。1プレイで約5〜10行（索引を含む）書くので、1日1〜2万プレイが目安。超えそうなら Workers の有料プラン（月5ドル）にする
 
 ## β版について

@@ -15,7 +15,7 @@ export function footer(opts: { full?: boolean; help?: boolean; screen?: Feedback
           h('a', { href: feedbackUrl({ screen: opts.screen }), target: '_blank', rel: 'noopener' }, '気づいたこと・間違いを送る'),
         )
       : null,
-    opts.full ? h('p', {}, 'プレイ数は匿名で数えています。名前などの個人情報は集めません。') : null,
+    opts.full ? h('p', {}, 'プレイ数とアクセス数は匿名で数えています（Cookieは使いません）。名前などの個人情報は集めません。') : null,
     opts.help
       ? h(
           'p',
