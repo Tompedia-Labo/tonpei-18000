@@ -48,7 +48,7 @@ Node.js 24.22.1 以上が必要です（[.node-version](.node-version)。2026年
 - `GET /api/stats` … `{ entered, finished, campus }`。「いま学んでいる人」は、在学を終えておらず直近10分に動きがあったプレイ。エッジで15秒キャッシュする
 - APIが落ちても、上限に達しても、ゲームは普通に動く（LPのカウンターの欄だけ隠れる）
 - 他のサイトから訪問者のブラウザ経由で数を増やされないよう、同じオリジンからの `application/json` で512バイト以下の送信だけを受け付ける。プレイの行は2日たつと消す（数えた結果は `counters` に残る）
-- 静的ファイルのセキュリティヘッダー（CSPなど）は [public/_headers](public/_headers)。外部から読み込むのは Google Fonts と、サークルの Cloudflare が差し込むアクセス解析（Web Analytics）だけ。同じく差し込まれるボット検出のインラインスクリプトは CSP で止めている（ブラウザのコンソールにエラーが出るが、ゲームには影響しない。消したければ Cloudflare の設定で JavaScript detections を切る）
+- 静的ファイルのセキュリティヘッダー（CSPなど）は [public/_headers](public/_headers)。外部から読み込むのは Google Fonts と、サークルの Cloudflare が差し込むアクセス解析（Web Analytics）、とんペディアのアクセス解析（Umami、`analytics.tompedia.jp`）だけ。同じく差し込まれるボット検出のインラインスクリプトは CSP で止めている（ブラウザのコンソールにエラーが出るが、ゲームには影響しない。消したければ Cloudflare の設定で JavaScript detections を切る）
 - D1の無料枠は1日10万行の書き込み。1プレイで約5〜10行（索引を含む）書くので、1日1〜2万プレイが目安。超えそうなら Workers の有料プラン（月5ドル）にする
 
 ## β版について

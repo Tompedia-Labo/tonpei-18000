@@ -3,8 +3,9 @@
 # 画像の data: は枠の 9-slice、blob: はシェア画像の保存に使う
 # cloudflareinsights は、サークルの Cloudflare が差し込むアクセス解析（Web Analytics、Cookie なし）。
 # 同じく差し込まれるボット検出のインラインスクリプトは、許可すると CSP が意味を失うので止めたままにする
+# analytics.tompedia.jp は、とんペディアのアクセス解析（Umami）。index.html で読み込み、同じホストへ送る
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://analytics.tompedia.jp; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://cloudflareinsights.com https://analytics.tompedia.jp; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
