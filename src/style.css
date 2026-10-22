@@ -216,6 +216,12 @@ canvas.px {
 .title {
   gap: 18px;
 }
+.title-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
 .map-wrap {
   position: relative;
 }
@@ -404,6 +410,7 @@ canvas.px {
   border: 12px solid transparent;
   border-image: var(--frame-violet) 4 fill / 12px stretch;
   align-items: center;
+  text-align: center;
   font-family: var(--font-pixel);
   color: var(--white);
   font-size: 2rem;
@@ -488,6 +495,13 @@ canvas.px {
 }
 
 /* ── ゲーム画面：HUD */
+.play-side,
+.play-main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
 .hud-row {
   display: flex;
   align-items: center;
@@ -1256,6 +1270,9 @@ canvas.ladder {
   padding: 16px;
   align-content: center;
   opacity: 0.55;
+  /* 横に広い画面では、3段がちょうど縦に収まる幅まで狭めて真ん中に置く */
+  width: min(100%, 125vh);
+  margin: 0 auto;
 }
 .memories canvas {
   width: 100%;
@@ -1275,6 +1292,14 @@ canvas.ladder {
 }
 
 /* ── 結果 */
+/* スマホでは1列。左右の列の箱を外し、もう一度入学するをいちばん下に回す */
+.result-main,
+.result-more {
+  display: contents;
+}
+.result-again {
+  order: 1;
+}
 .result-card {
   position: relative;
   overflow: hidden;
@@ -1364,7 +1389,8 @@ canvas.ladder {
 }
 .share {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8.5em, 1fr));
+  /* 4つを 2×2 か縦1列に並べる（3＋1に割れないように、1行は2つまで） */
+  grid-template-columns: repeat(auto-fit, minmax(max(8.5em, calc(50% - 6px)), 1fr));
   gap: 12px;
 }
 .share .btn {
@@ -1690,6 +1716,212 @@ canvas.ladder {
 /* 「とんペディア_ラボ」の _ が下線に埋もれないよう、下線を少し離す */
 .footer a {
   text-underline-offset: 0.3em;
+}
+
+/* ── パソコン（横に広い画面）：画面ごとに2列にする。スマホの1列はここより上の指定のまま */
+@media (min-width: 60em) {
+  #app {
+    max-width: 1120px;
+    padding: 24px 32px;
+  }
+  .screen {
+    gap: 18px;
+  }
+  /* 2列の画面は、画面の高さが余っても行を引き伸ばさない */
+  .title,
+  .gacha,
+  .review {
+    align-content: start;
+  }
+  .screen > .ribbon {
+    justify-self: center;
+  }
+  /* 列の中で1つだけ置く大きなボタンは、横に伸ばしきらない */
+  .review > .btn.big,
+  .dex > .btn.big {
+    justify-self: center;
+    align-self: center;
+    width: min(100%, 24em);
+  }
+
+  /* タイトル：左に地図と制作、右にロゴと入学する */
+  .title {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    grid-template-areas: 'map hero' 'credit hero';
+    gap: 24px 36px;
+    align-items: start;
+  }
+  .title > .map-win {
+    grid-area: map;
+  }
+  .title > .credit-mini {
+    grid-area: credit;
+  }
+  .title-hero {
+    grid-area: hero;
+    padding-top: 12px;
+  }
+  /* 下の制作欄まで読み進めても、入学するが見えたままになるよう貼りつける（縦に余裕のある画面だけ） */
+  @media (min-height: 44em) {
+    .title-hero {
+      position: sticky;
+      top: 0;
+    }
+  }
+  .logo-num {
+    font-size: 4.75rem;
+  }
+  .logo-kana {
+    font-size: 2rem;
+  }
+
+  /* ガチャ：左にカード4枚×2段、右に豆知識とボタン */
+  .gacha {
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+    grid-template-areas: 'ribbon ribbon' 'cards side' 'cards actions' 'sources actions';
+    gap: 18px 28px;
+    align-items: start;
+  }
+  .gacha > .ribbon {
+    grid-area: ribbon;
+  }
+  /* ふつうの文字の大きさなら4枚×2段。文字が大きいときは列を減らす */
+  .gacha-grid {
+    grid-area: cards;
+    gap: 14px;
+  }
+  .gcard {
+    min-height: 9em;
+  }
+  .gacha-sources {
+    grid-area: sources;
+  }
+  .gacha > .trivia,
+  .gacha > .birth {
+    grid-area: side;
+  }
+  .gacha > .choices {
+    grid-area: actions;
+  }
+
+  /* ゲーム：左の列に HUD とステータス（画面に貼りつける）、右の列にイベントと選択肢 */
+  .play {
+    display: grid;
+    grid-template-columns: 18rem minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+  }
+  .play-side {
+    position: sticky;
+    top: 24px;
+  }
+  .play-main {
+    gap: 16px;
+    container: play-main / inline-size;
+  }
+  .play-side .status {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    padding: 4px 0;
+  }
+  .play-side .stat {
+    grid-template-columns: 16px 4.5em minmax(0, 1fr) 2em;
+    grid-template-areas: 'icon name bar num';
+    column-gap: 8px;
+  }
+  .play-side .stat-name {
+    font-size: 0.875rem;
+    color: var(--ink);
+  }
+  .play-side .stat-bar {
+    height: 12px;
+  }
+  .play-side .stat-pop {
+    right: 0;
+    bottom: 60%;
+  }
+  .event,
+  .moment,
+  .banner,
+  .diary-win {
+    min-height: 15em;
+  }
+  .event-text {
+    font-size: 1.125rem;
+  }
+  .banner-sem {
+    font-size: 4rem;
+  }
+
+  /* ふりかえり：左にグラフと統計、右に年表 */
+  .review {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 'ribbon ribbon' 'graph timeline' 'compare timeline' '. timeline' 'next next';
+    gap: 18px 28px;
+    align-items: start;
+  }
+  .review > .ribbon {
+    grid-area: ribbon;
+  }
+  .review-graph {
+    grid-area: graph;
+  }
+  .review-timeline {
+    grid-area: timeline;
+  }
+  .review > .compare {
+    grid-area: compare;
+  }
+  .review > .btn.big {
+    grid-area: next;
+  }
+
+  /* 結果：左に結果と次の一手、右に詳しい話 */
+  .result {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+  }
+  .result-main,
+  .result-more {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+  }
+  .fraction-top {
+    font-size: 4.75rem;
+  }
+  .fraction-bottom {
+    font-size: min(4.25rem, calc(100cqi / (var(--chars, 6) * 0.62)));
+  }
+  .result-hero .chara {
+    width: 144px;
+  }
+
+  /* 称号図鑑：2列 */
+  .dex-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .dex-count {
+    width: min(100%, 32em);
+    align-self: center;
+  }
+}
+
+/* パソコンのゲーム画面で、右の列が文字の大きさに対して十分広いときだけ、本文の右に大きな絵を置く。
+   折り返さないので、本文は上から始まる */
+@container play-main (min-width: 34em) {
+  .event-main {
+    flex-wrap: nowrap;
+  }
+  .scene-box {
+    flex: 0 1 300px;
+  }
 }
 
 /* ── 動き（ドットらしく steps で動かす） */

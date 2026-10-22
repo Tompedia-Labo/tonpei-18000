@@ -46,14 +46,14 @@ export function reviewScreen(s: State, onNext: () => void): HTMLElement {
     h('h2', { class: 'ribbon' }, 'ふりかえり'),
     h(
       'section',
-      { class: 'win drop' },
+      { class: 'win drop review-graph' },
       h('p', { class: 'section-title' }, 'ゲージの推移'),
       sparkline(s),
       h('p', { class: 'legend' }, ...keys.map((g) => h('span', { style: `--c:${COLORS[g.key]}` }, g.name))),
     ),
     h(
       'section',
-      { class: 'win drop' },
+      { class: 'win drop review-timeline' },
       h('p', { class: 'section-title' }, '在学期間の年表'),
       h(
         'ol',

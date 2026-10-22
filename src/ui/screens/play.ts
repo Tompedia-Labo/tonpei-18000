@@ -44,7 +44,8 @@ export function playScreen(initial: State, onEnd: (s: State) => void, hooks: Pla
       primary?.();
     }
   });
-  const el = h('main', { class: 'screen play' }, top.el, status.el, stage, actions, h('div', { class: 'tools' }, fastBtn));
+  // パソコンでは HUD とステータスを左の列、イベントと選択肢を右の列に置く
+  const el = h('main', { class: 'screen play' }, h('div', { class: 'play-side' }, top.el, status.el), h('div', { class: 'play-main' }, stage, actions, h('div', { class: 'tools' }, fastBtn)));
 
   const setScene = (v: SceneView | null) => {
     scene?.stop();

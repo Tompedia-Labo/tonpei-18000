@@ -47,17 +47,22 @@ export function titleScreen(onStart: () => void, onDex: () => void): { el: HTMLE
     'main',
     { class: 'screen title' },
     h('section', { class: 'win drop map-win' }, h('div', { class: 'map-wrap' }, map.canvas, ...labels.map((l) => l.el)), learning, h('p', { class: 'map-caption' }, '地図はイメージです')),
+    // パソコンでは地図の右に並べる
     h(
-      'h1',
-      { class: 'logo' },
-      h('span', { class: 'sr-only' }, `とんぺー1.8万分の１（${BETA}）`),
-      h('span', { class: 'logo-top' }, kana, h('span', { class: 'beta-tag', 'aria-hidden': 'true' }, BETA)),
-      h('span', { class: 'logo-num', 'aria-hidden': 'true' }, h('em', {}, '1.8万'), '分の１'),
+      'div',
+      { class: 'title-hero' },
+      h(
+        'h1',
+        { class: 'logo' },
+        h('span', { class: 'sr-only' }, `とんぺー1.8万分の１（${BETA}）`),
+        h('span', { class: 'logo-top' }, kana, h('span', { class: 'beta-tag', 'aria-hidden': 'true' }, BETA)),
+        h('span', { class: 'logo-num', 'aria-hidden': 'true' }, h('em', {}, '1.8万'), '分の１'),
+      ),
+      h('p', { class: 'lead' }, `東北大の在学生は約${fmt(stat('enrolled.total'))}人。`, h('br'), '入学ガチャを引いて、在学の終わりまでを3〜6分で生きてみよう。'),
+      counters,
+      note,
+      h('div', { class: 'title-actions' }, start, dexBtn, h('p', { class: 'title-meta' }, plays ? h('span', {}, `この端末で${plays}回入学`) : null, h('span', {}, INSPIRED_BY))),
     ),
-    h('p', { class: 'lead' }, `東北大の在学生は約${fmt(stat('enrolled.total'))}人。`, h('br'), '入学ガチャを引いて、在学の終わりまでを3〜6分で生きてみよう。'),
-    counters,
-    note,
-    h('div', { class: 'title-actions' }, start, dexBtn, h('p', { class: 'title-meta' }, plays ? h('span', {}, `この端末で${plays}回入学`) : null, h('span', {}, INSPIRED_BY))),
     credit('mini'),
   );
 

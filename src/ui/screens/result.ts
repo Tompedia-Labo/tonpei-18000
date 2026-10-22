@@ -128,21 +128,24 @@ export function resultScreen(s: State, onRetry: () => void, onDex: () => void): 
       )
     : null;
 
+  // パソコンでは左の列に結果と次の一手、右の列に詳しい話を置く。スマホでは1列に戻し、もう一度入学するをいちばん下に回す（style.css）
   const el = h(
     'main',
     { class: `screen result tier-${r.rarity.tier}` },
-    resultCard,
-    share,
-    tenYears,
-    rare,
-    research,
-    credit('full'),
     h(
       'div',
-      { class: 'choices' },
-      h('button', { class: 'btn primary big', type: 'button', onclick: onRetry }, h('span', { class: 'cursor', 'aria-hidden': 'true' }), 'もう一度入学する'),
-      h('button', { class: 'btn', type: 'button', onclick: onDex }, `称号図鑑 ${got}/${TITLES.length}`),
+      { class: 'result-main' },
+      resultCard,
+      share,
+      tenYears,
+      h(
+        'div',
+        { class: 'choices result-again' },
+        h('button', { class: 'btn primary big', type: 'button', onclick: onRetry }, h('span', { class: 'cursor', 'aria-hidden': 'true' }), 'もう一度入学する'),
+        h('button', { class: 'btn', type: 'button', onclick: onDex }, `称号図鑑 ${got}/${TITLES.length}`),
+      ),
     ),
+    h('div', { class: 'result-more' }, rare, research, credit('full')),
   );
 
   // 数え上げてから、レア度に合わせた演出
