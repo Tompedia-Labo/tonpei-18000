@@ -18,6 +18,7 @@ export const ICONS: Record<string, Sprite> = {
   star: ['...k....', '..kYk...', 'kkYYYkk.', 'kYYwYYk.', '.kYYYk..', 'kYk.kYk.', 'kk...kk.', '........'],
   chart: ['k.......', 'k.....V.', 'k...V.V.', 'k.V.V.V.', 'k.V.V.V.', 'k.V.V.V.', 'kkkkkkkk', '........'],
   heart: ['.kk.kk..', 'kRrkRRk.', 'kRRRRRk.', 'kRRRRpk.', '.kRRpk..', '..kpk...', '...k....', '........'],
+  clock: ['..kkkk..', '.kwwwwk.', 'kwwkwwwk', 'kwwkwwwk', 'kwwkkkwk', 'kwwwwwwk', '.kwwwwk.', '..kkkk..'],
   out: ['...kkkkk', '....kkkk', '.....kkk', '....kkkk', '...kk..k', '..kk....', '.kk.....', 'kk......'],
 };
 

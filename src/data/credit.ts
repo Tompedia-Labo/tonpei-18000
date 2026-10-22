@@ -14,10 +14,14 @@ export const FESTA_BANNER = {
 
 /**
  * とんペディア_ラボが参加している Giving Campaign の案内。大学への寄付と取り違えられないよう、主語は団体名にする。
- * クレジット枠の中にだけ出す（ゲームの途中・シェア文・OGPには出さない）。キャンペーンが終わったら GIVING ごと消す（終わる日：要確認）
+ * クレジット枠の中にだけ出す（ゲームの途中・シェア文・OGPには出さない）。
+ * endsAt を過ぎると画面から自動で消える。消えたあとは、落ち着いたときに GIVING ごとコードから消す
  */
 export const GIVING = {
   url: 'https://tohoku.2026.giving-campaign.jp/groups?id=dc7af851-20c9-4215-8694-e453695e5d2f',
+  /** キャンペーンの終わり（日本時間 2026年10月25日 21:00） */
+  endsAt: '2026-10-25T21:00:00+09:00',
+  timerLabel: '締め切りまで',
   body: 'とんペディア_ラボは今、Giving Campaignに参加しています。\n活動を応援してもらえたらうれしいです！',
   button: '応援する',
 };
@@ -33,6 +37,7 @@ export const GIVING = {
 //
 //   [ 東北大学祭2026 ウェブアプリのバナー ]   ← 押すと FESTA_URL
 //   - - - - - - - - - - - - - - - - - - - -
+//        [ ◷ 締め切りまで 2日 05:12:33 ]     ← GIVING.timerLabel ＋ 残り時間（1秒ごとに減る）
 //     とんペディア_ラボは今、Giving Campaignに〜   ← GIVING.body
 //
 //   [ ♥ 応援する ↗ ]  [ ラボのサイト ↗ ]       ← GIVING.button → GIVING.url ／ laboButton（白いボタン）
@@ -48,6 +53,7 @@ export const CREDIT_RESULT = {
 //        [ とんペディア_ラボのロゴ ]         ← 押すと LABO.url
 //       東北大学祭に向けて作りました。       ← body
 //   [ 東北大学祭2026 ウェブアプリのバナー ]   ← 押すと FESTA_URL
+//        [ ◷ 締め切りまで 2日 05:12:33 ]     ← GIVING.timerLabel ＋ 残り時間
 //     とんペディア_ラボは今、Giving Campaignに〜   ← GIVING.body（小さめ）
 //            [ ♥ 応援する ↗ ]                ← GIVING.button → GIVING.url
 export const CREDIT_TITLE = {

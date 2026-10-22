@@ -1641,6 +1641,32 @@ canvas.ladder {
 .credit-mini .giving-btn {
   margin: 8px 0 12px;
 }
+/* 締め切りまでの残り時間。ピンクのドット枠の札に、ドット書体の数字 */
+.giving-timer {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 8px;
+  margin-bottom: 8px;
+  padding: 0 4px;
+  border: 9px solid transparent;
+  border-image: var(--frame-pink) 4 fill / 9px stretch;
+  font-family: var(--font-pixel);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.giving-timer .icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+.giving-left {
+  font-size: 1.125rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
 .giving-btn .icon {
   flex: none;
   width: 16px;
